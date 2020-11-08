@@ -16,7 +16,7 @@
     </title>
     <style>
         {% block css %}
-    
+
           {% endblock css %}
       </style>
 </head>
@@ -38,20 +38,19 @@
 
 
             <ul class="navbar-nav my-2 my-lg-0">
-                {% if request.session.customer %}
                 <li class="nav-item ">
-                    <a class="nav-link" href="/cart">Cart <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/cart">Cart
+                      <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
+                        <span class="sr-only">(current)</span></a>
                 </li>
+                {% if request.session.customer %}
                 <li class="nav-item ">
                     <a class="nav-link" href="/orders">Orders <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
                 </li>
-               {% else %} 
-               <li class="nav-item ">
-                <a class="nav-link" href="/cart">Cart <span class="sr-only">(current)</span></a>
-               </li>
+               {% else %}
                <li class="nav-item ">
                 <a class="nav-link" href="/signup">Signup <span class="sr-only">(current)</span></a>
                </li>
@@ -82,7 +81,7 @@
     -->
 </body>
 {% block js %}
-   
+
 {% endblock js %}
 
 

@@ -41,28 +41,52 @@
          </table>
          <hr>
          <div class="m-3 p-3">
-             <a href="#" class="btn btn-outline-info border rounded col-lg-3 float-right">Check out</a>
+             <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info border rounded col-lg-3 float-right">Check out</a>
          </div>
 
 
     </div>
-
-
-
-
-
 </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Check Out Form</h5>
+          <hr>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="m-2 p-3">
+              <form action="/check-out" method="POST">
+               {% csrf_token %}
+               <div class="form-group">
+                 <label for="">Address</label>
+                 <input type="text" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+               </div>
+               <div class="form-group">
+                <label for="">City</label>
+                <input type="text" name="city" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+              <div class="form-group">
+                <label for="">State</label>
+                <input type="text" name="state" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+              <div class="form-group">
+                <label for="">Zip Code</label>
+                <input type="text" name="zip_code" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+               <div class="form-group">
+                <label for="">Phone No</label>
+                <input type="text" name="phone" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+              <input type="submit" class="btn float-right btn-outline-info col-lg-5" value="Check out">
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
-
-<!-- {% block js %}
-<script>
-var addSerialNumber = function () {
-    var i = 1
-    $('table tr').each(function(index) {
-        $(this).find('td:nth-child(1)').html(index+1);
-    });
-};
-
-addSerialNumber();
-</script>
-{% endblock js %} -->

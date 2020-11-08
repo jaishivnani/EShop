@@ -1,59 +1,86 @@
+
 {% extends 'base.html' %}
 
-{% block title %} Sign Up {% endblock title %}
 
 {% block content %}
-<div class="container">
+
+<div class="container mt-4">
+
     <div class="p-4 m-4">
-        <div class="col-lg-5 mx-auto border rounded pt-4">
-            <h2 class="alert alert-light border rounded">Create an account</h2>
+
+
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+
+                <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Shopping_cart_with_food_clip_art_2.svg/307px-Shopping_cart_with_food_clip_art_2.svg.png" alt=""
+                class="" style="height: 150px;">
+            <!-- <hr> -->
+            <div class="display-8">Create An Account</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
             <form action="/signup" method="POST">
+
                 {% csrf_token %}
-                {% if error %}
+
+                {% if error%}
                 <div class="alert alert-danger" role="alert">
                     {{error}}
                 </div>
                 {% endif %}
-
-                <!--firstname-->
+                <!-- firstname -->
                 <div class="form-group">
                     <label for="">First Name</label>
-                    <input type="text" value = "{{values.first_name}}" name="firstname" id="" class="form-control form-control-sm" placeholder="">
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm"
+                     placeholder="">
                 </div>
 
-                <!--lastname-->
+                <!-- last name -->
                 <div class="form-group">
                     <label for="">Last Name</label>
-                    <input type="text" value = "{{values.last_name}}" name="lastname" id="" class="form-control form-control-sm" placeholder="">
+                    <input type="text" name="lastname"
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
+                    >
                 </div>
 
-                <!--lastname-->
+                <!-- phone -->
                 <div class="form-group">
-                    <label for="">Phone No</label>
-                    <input type="tel" value = "{{values.phone}}" name="phone" id="" class="form-control form-control-sm" placeholder="">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone"
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="565698959"
+                    >
                 </div>
-
-                <!--email-->
+                <!-- email -->
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="email" value = "{{values.email}}" name="email" id="" class="form-control form-control-sm"
-                        placeholder="example@gmail.com">
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}"
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
                 </div>
 
-                <!--password-->
+
+                <!-- password -->
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" name="password" id="" class="form-control form-control-sm"
-                        placeholder="*********">
+                    <input type="password"
+                    name="password"
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
                 </div>
 
+                <hr>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-sm btn-info" value="Create An Account">
+                    <input class="btn btn-sm btn-info" type="submit" value="Create An Account ">
                 </div>
+
 
             </form>
         </div>
     </div>
 </div>
 
-{% endblock content %}
+{% endblock %}
